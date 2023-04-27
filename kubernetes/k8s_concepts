@@ -13,6 +13,8 @@ Controller:
 -ReplicationController(old version) will be ReplicaSet(new version)
 -ReplicaSet can manage existing containers created outside replicaset
 -replica count can be changed later by updating replicaset file or from command line by proving file name for replicaSet name as command line parameter
+-replicaset use selector(with match labels) to manage pod created outside replicaset
+
 
 Commands
 kubectl create -f replication_controller.yaml -> will create replication controller along with pods
@@ -20,5 +22,25 @@ kubectl create -f replicaset.yaml -> will create replicaset along with pods
 kubectl replace -f replicaset.yaml -> will apply updated definition (create more pods if replica count changed)
 kubectl scale --replicas=6 -f replicaset.yaml ->creates new pods
 kubectl scale --replicas=6 replicaset replicaset_name ->creates new pods
+
+Deployment
+- Used to deploy pods in k8s
+- Deployment has strategies like - Rolling update, recreate. Default is Rolling update
+- It creates a new replicaset with new deployment version
+- Can rollback to old deployment version
+
+commands
+kubectl create -f deployment.yaml -> create new deployment
+kubectl apply -f deployment.yaml -> Apply new changes in deployment
+kubectl set image deployment/deployment_name image:version -> update image version. this will not update deployment file
+kubectl get replicasets -> get replicasets created by deployment
+kubectl get deployments -> get deployment
+kubectl rollout undo deployment/deployment_name -> revert old deployment version
+kubectl rollout status deployment/deployment_name -> check deployment status
+kubectl rollout history deployment/deployment_name -> check deployment history(versions)
+
+
+
+
 
 
