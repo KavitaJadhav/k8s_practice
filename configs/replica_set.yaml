@@ -1,0 +1,19 @@
+apiVersion: app/v1
+kind: ReplicaSet
+metadata:
+  name: replicaSet
+  labels:
+    name: nginx_replicaset
+    tag: be_replicaset
+spec:
+  template:
+    metadata:
+      name: nginx
+      labels:
+        name: nginx_pod
+        tags: be_pods
+    spec:
+      container:
+        - name: nginx
+          image: nginx
+replicas: 3

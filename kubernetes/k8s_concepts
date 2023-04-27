@@ -1,0 +1,24 @@
+Pod
+- pod is smallest unit in k8s
+- Container is running image. Container runs inside pod. when user load is increased a new container is created in a new pod.
+- If a dependency container needs to be run in parallel to main container then its creased in same pod (like, sidecar)
+
+Commands:
+kubectl get pods -? get all pods
+kubectl get pods -o wide -> gives extra information of pods
+kubectl describe pod NAME -> details information of pod
+
+Controller:
+-Replication Controller - Helps to run more than one pod, ensure specified no of pods are running, scale in scale out
+-ReplicationController(old version) will be ReplicaSet(new version)
+-ReplicaSet can manage existing containers created outside replicaset
+-replica count can be changed later by updating replicaset file or from command line by proving file name for replicaSet name as command line parameter
+
+Commands
+kubectl create -f replication_controller.yaml -> will create replication controller along with pods
+kubectl create -f replicaset.yaml -> will create replicaset along with pods
+kubectl replace -f replicaset.yaml -> will apply updated definition (create more pods if replica count changed)
+kubectl scale --replicas=6 -f replicaset.yaml ->creates new pods
+kubectl scale --replicas=6 replicaset replicaset_name ->creates new pods
+
+

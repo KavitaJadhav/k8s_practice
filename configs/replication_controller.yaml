@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: replication_controller
+  labels:
+    name: replication_controller
+    tag: be_replication_controller
+specs:
+  templates:
+    metadata:
+      name: nginx_pod
+      labels:
+        name: nginx
+        type: be_pod
+
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+replicas: 3

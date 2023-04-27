@@ -1,0 +1,8 @@
+Container -
+- Share same operating system container
+
+Docker registry
+- store prebuild docker images
+
+Image - Package/template used to create one or more containers
+Container - Container is a running image. It has its own resources

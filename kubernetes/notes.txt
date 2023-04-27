@@ -1,0 +1,32 @@
+Container Orchestration Tools
+Docker Swarm - Easy to setup but have basic features
+Kubernetes - Medium difficulty. Supports many features. Supported on cloud platforms Azure, AWS, GCP
+MESOS - Provide complex features. Difficult to setup
+
+
+Cluster
+- Set of nodes(Master + nodes)
+- Master - responsible of managing nodes
+
+Components
+1. API server - Front end of K8s
+2. etcd(key value store) - store configuration information. Master node stores information shared by kubelet.
+3. Scheduler - Distribute load across nodes
+4. Controller - Brain of system. take care of creating/removing resource(scale in/scale out). or replace bad resource.
+5. Kubelet - Agent installed on node. Ensures containers are running as expected. It shares information with master node.
+6. Container Runtime - Underlying software usd to run container(E.g. Docker)
+
+Kubectl (command-line tool)
+- Used to deploy and manage application in Kubernetes cluster.(deploy node, get nodes)
+- Communicate with a Kubernetes cluster's control plane, using the Kubernetes API.
+
+kubectl [command] [TYPE] [NAME] [flags]
+-command -> get, create, delete
+-Type -> Pod, Service
+-Name -> resource name
+
+-kubectl run hello-minikube -> deploy application
+-kubectl cluster-info -> get information of cluster
+-kubectl get nodes -> nodes running on cluster
+
+
