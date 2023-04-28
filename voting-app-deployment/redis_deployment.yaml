@@ -1,0 +1,25 @@
+apiVersion: app/v1
+kind: Deployment
+metadata:
+  name: redis_deployment
+  labels:
+    name: redis_deployment
+    type: be_deployment
+spec:
+  selectors:
+    matchLabel:
+      name: redis_pod
+      type: be_pod
+  replicas: 2
+  template:
+    metadata:
+      name: redis_pod
+      labels:
+        name: redis_pod
+        type: be_pod
+    spec:
+      containers:
+        - name: redis_pod
+          image: redis
+          ports:
+            containerPort: 8937
