@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: worker_pod
+  labels:
+    name: worker_pod
+    type: be_pod
+
+spec:
+  containers:
+    - name: worker_pod
+      image: worker:v1

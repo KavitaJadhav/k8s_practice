@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: result_pod
+  labels:
+    name: result_pod
+    type: be_pod
+
+spec:
+  containers:
+    - name: result_pod
+      image: result:v1

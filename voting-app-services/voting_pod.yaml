@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: voting_pod
+  labels:
+    name: voting_pod
+    type: be_pod
+
+spec:
+  containers:
+    - name: voting_pod
+      image: voting:v1
