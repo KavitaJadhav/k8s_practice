@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: be_service
+  labels:
+    name: cluster_ip_service
+    tag: be_service
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 8080
+  selectors:
+    name: nginx
+    type: be_pod

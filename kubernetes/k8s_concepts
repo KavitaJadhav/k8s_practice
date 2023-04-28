@@ -39,6 +39,13 @@ kubectl rollout undo deployment/deployment_name -> revert old deployment version
 kubectl rollout status deployment/deployment_name -> check deployment status
 kubectl rollout history deployment/deployment_name -> check deployment history(versions)
 
+Service
+- Used to make service running in container accessible from client machine
+- nodePort - NodePort service allow end user to connect to port on node(range 30000-32767). It keeps mapping of (node port -> service port -> container port)
+- clusterIP - it create a cluster of nodes and containers. Services can be accessed using clusterIP. clusterIP is created to access service internally
+- loadBalancer - It is used to expose single ip ro end user. loadBalancer service balances load across containers running on multiple pods
+- Selectors are provided in service to map to the pods
+- if service type is not given then it create's clusterIP
 
 
 
